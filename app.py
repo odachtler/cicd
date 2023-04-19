@@ -90,6 +90,10 @@ def mnthlyPmt():
 
     return redirect(url_for("index"))
 
+# Handling error 404 and displaying relevant web page
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template("404.html"), 404
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=4000, debug=True)
+    app.run(host="0.0.0.0", port=4000, debug=False)
